@@ -8,13 +8,14 @@ int main(void)
     string name = get_string();
     int length = strlen(name);
     
-    printf("%c", toupper(name[0]));
+    if (name[0] != ' ')
+        printf("%c", toupper(name[0]));
     
     for (int i = 1; i < length; i++)
     {
-        if (name[i] == ' ')
+        if (name[i - 1] == ' ' && name[i] != ' ')
         {
-            printf("%c", toupper(name[i + 1]));
+            printf("%c", toupper(name[i]));
         }
     }
     printf("\n");
